@@ -1,6 +1,101 @@
-Donor_ID,Name,Donor_Type,Primary_Interest,Lifetime_INR,Last_Contact,Acquisition_Source,Suggested_Next_Step
-CWS_101,Supporter_1,Individual,Wild Seve (Conflict Relief),5000,2026-08-14,Razorpay Website,Send field update email
-CWS_102,CSR_Foundation_1,Institutional,Wild Shaale (Rural Education),500000,2026-07-20,Direct CSR Meeting,Review quarterly grant status
-CWS_103,Supporter_2,Individual,General Conservation,1500,2026-09-01,Flodesk Newsletter,Send field update email
-CWS_104,CSR_Foundation_2,Institutional,Wild Seve (Conflict Relief),250000,2026-06-11,Direct CSR Meeting,Review quarterly grant status
-CWS_105,Supporter_3,Individual,Wild Shaale (Rural Education),10000,2026-08-30,Webinar,Send field update email
+Donor_ID,Name,Donor_Type,Primary_Interest,Lifetime_INR,Last_Contact,Acquisition_Source
+CWS_101,Supporter_1,Individual,Wild Seve (Conflict Relief),5000,2026-08-14,Razorpay Website
+CWS_102,CSR_Foundation_1,Institutional,Wild Shaale (Rural Education),500000,2026-07-20,Direct CSR
+CWS_103,Supporter_2,Individual,General Conservation,1500,2026-09-01,Flodesk Newsletter
+CWS_104,CSR_Foundation_2,Institutional,Wild Seve (Conflict Relief),250000,2026-06-11,Direct CSR
+CWS_105,Supporter_3,Individual,Wild Shaale (Rural Education),10000,2026-08-30,Webinar
+CWS_106,Supporter_4,Individual,General Conservation,2500,2026-09-10,Razorpay Website
+CWS_107,Supporter_5,Individual,Wild Seve (Conflict Relief),7500,2026-08-22,Flodesk Newsletter
+CWS_108,CSR_Foundation_3,Institutional,General Conservation,750000,2026-05-15,Direct CSR
+CWS_109,Supporter_6,Individual,Wild Shaale (Rural Education),3000,2026-09-05,Webinar
+CWS_110,Supporter_7,Individual,Wild Seve (Conflict Relief),12000,2026-08-01,Razorpay Website
+CWS_111,CSR_Foundation_4,Institutional,Wild Shaale (Rural Education),400000,2026-07-10,Direct CSR
+CWS_112,Supporter_8,Individual,General Conservation,1800,2026-09-12,Flodesk Newsletter
+CWS_113,Supporter_9,Individual,Wild Seve (Conflict Relief),6000,2026-08-25,Razorpay Website
+CWS_114,CSR_Foundation_5,Institutional,General Conservation,1000000,2026-04-20,Direct CSR
+CWS_115,Supporter_10,Individual,Wild Shaale (Rural Education),4500,2026-09-02,Webinar
+CWS_116,Supporter_11,Individual,General Conservation,2000,2026-08-18,Razorpay Website
+CWS_117,Supporter_12,Individual,Wild Seve (Conflict Relief),8000,2026-09-15,Flodesk Newsletter
+CWS_118,CSR_Foundation_6,Institutional,Wild Shaale (Rural Education),350000,2026-06-25,Direct CSR
+CWS_119,Supporter_13,Individual,Wild Seve (Conflict Relief),5500,2026-08-28,Webinar
+CWS_120,Supporter_14,Individual,General Conservation,2200,2026-09-08,Razorpay Website
+CWS_121,CSR_Foundation_7,Institutional,Wild Seve (Conflict Relief),600000,2026-05-30,Direct CSR
+CWS_122,Supporter_15,Individual,Wild Shaale (Rural Education),9000,2026-08-12,Flodesk Newsletter
+CWS_123,Supporter_16,Individual,General Conservation,1500,2026-09-18,Razorpay Website
+CWS_124,CSR_Foundation_8,Institutional,Wild Shaale (Rural Education),450000,2026-07-05,Direct CSR
+CWS_125,Supporter_17,Individual,Wild Seve (Conflict Relief),7000,2026-08-20,Webinar
+CWS_126,Supporter_18,Individual,General Conservation,3200,2026-09-03,Flodesk Newsletter
+CWS_127,Supporter_19,Individual,Wild Shaale (Rural Education),4000,2026-08-10,Razorpay Website
+CWS_128,CSR_Foundation_9,Institutional,General Conservation,800000,2026-06-15,Direct CSR
+CWS_129,Supporter_20,Individual,Wild Seve (Conflict Relief),11000,2026-09-07,Webinar
+CWS_130,Supporter_21,Individual,Wild Shaale (Rural Education),2800,2026-08-25,Razorpay Website
+CWS_131,CSR_Foundation_10,Institutional,Wild Seve (Conflict Relief),300000,2026-07-22,Direct CSR
+CWS_132,Supporter_22,Individual,General Conservation,1900,2026-09-11,Flodesk Newsletter
+CWS_133,Supporter_23,Individual,Wild Shaale (Rural Education),5200,2026-08-14,Razorpay Website
+CWS_134,CSR_Foundation_11,Institutional,General Conservation,550000,2026-05-18,Direct CSR
+CWS_135,Supporter_24,Individual,Wild Seve (Conflict Relief),6500,2026-09-04,Webinar
+CWS_136,Supporter_25,Individual,General Conservation,2100,2026-08-27,Razorpay Website
+CWS_137,Supporter_26,Individual,Wild Shaale (Rural Education),8500,2026-09-14,Flodesk Newsletter
+CWS_138,CSR_Foundation_12,Institutional,Wild Seve (Conflict Relief),700000,2026-06-08,Direct CSR
+CWS_139,Supporter_27,Individual,Wild Shaale (Rural Education),4800,2026-08-21,Webinar
+CWS_140,Supporter_28,Individual,General Conservation,2600,2026-09-06,Razorpay Website
+CWS_141,CSR_Foundation_13,Institutional,Wild Shaale (Rural Education),200000,2026-07-15,Direct CSR
+CWS_142,Supporter_29,Individual,Wild Seve (Conflict Relief),9500,2026-08-11,Flodesk Newsletter
+CWS_143,Supporter_30,Individual,General Conservation,1700,2026-09-17,Razorpay Website
+CWS_144,CSR_Foundation_14,Institutional,Wild Seve (Conflict Relief),420000,2026-05-25,Direct CSR
+CWS_145,Supporter_31,Individual,Wild Shaale (Rural Education),3500,2026-08-19,Webinar
+CWS_146,Supporter_32,Individual,General Conservation,2400,2026-09-09,Flodesk Newsletter
+CWS_147,Supporter_33,Individual,Wild Seve (Conflict Relief),5800,2026-08-29,Razorpay Website
+CWS_148,CSR_Foundation_15,Institutional,General Conservation,900000,2026-06-20,Direct CSR
+CWS_149,Supporter_34,Individual,Wild Shaale (Rural Education),7200,2026-09-01,Webinar
+CWS_150,Supporter_35,Individual,Wild Seve (Conflict Relief),10500,2026-08-16,Razorpay Website
+CWS_151,CSR_Foundation_16,Institutional,Wild Shaale (Rural Education),380000,2026-07-28,Direct CSR
+CWS_152,Supporter_36,Individual,General Conservation,2000,2026-09-13,Flodesk Newsletter
+CWS_153,Supporter_37,Individual,Wild Seve (Conflict Relief),6200,2026-08-24,Razorpay Website
+CWS_154,CSR_Foundation_17,Institutional,General Conservation,650000,2026-05-10,Direct CSR
+CWS_155,Supporter_38,Individual,Wild Shaale (Rural Education),4100,2026-09-05,Webinar
+CWS_156,Supporter_39,Individual,General Conservation,2700,2026-08-17,Razorpay Website
+CWS_157,Supporter_40,Individual,Wild Seve (Conflict Relief),8800,2026-09-16,Flodesk Newsletter
+CWS_158,CSR_Foundation_18,Institutional,Wild Shaale (Rural Education),280000,2026-06-12,Direct CSR
+CWS_159,Supporter_41,Individual,Wild Seve (Conflict Relief),5100,2026-08-26,Webinar
+CWS_160,Supporter_42,Individual,General Conservation,2300,2026-09-08,Razorpay Website
+CWS_161,CSR_Foundation_19,Institutional,Wild Seve (Conflict Relief),520000,2026-07-02,Direct CSR
+CWS_162,Supporter_43,Individual,Wild Shaale (Rural Education),9200,2026-08-13,Flodesk Newsletter
+CWS_163,Supporter_44,Individual,General Conservation,1600,2026-09-19,Razorpay Website
+CWS_164,CSR_Foundation_20,Institutional,Wild Shaale (Rural Education),470000,2026-05-22,Direct CSR
+CWS_165,Supporter_45,Individual,Wild Seve (Conflict Relief),7300,2026-08-23,Webinar
+CWS_166,Supporter_46,Individual,General Conservation,3100,2026-09-02,Flodesk Newsletter
+CWS_167,Supporter_47,Individual,Wild Shaale (Rural Education),4300,2026-08-09,Razorpay Website
+CWS_168,CSR_Foundation_21,Institutional,General Conservation,850000,2026-06-18,Direct CSR
+CWS_169,Supporter_48,Individual,Wild Seve (Conflict Relief),11500,2026-09-10,Webinar
+CWS_170,Supporter_49,Individual,Wild Shaale (Rural Education),2900,2026-08-27,Razorpay Website
+CWS_171,CSR_Foundation_22,Institutional,Wild Seve (Conflict Relief),320000,2026-07-25,Direct CSR
+CWS_172,Supporter_50,Individual,General Conservation,1850,2026-09-12,Flodesk Newsletter
+CWS_173,Supporter_51,Individual,Wild Shaale (Rural Education),5400,2026-08-15,Razorpay Website
+CWS_174,CSR_Foundation_23,Institutional,General Conservation,580000,2026-05-14,Direct CSR
+CWS_175,Supporter_52,Individual,Wild Seve (Conflict Relief),6700,2026-09-07,Webinar
+CWS_176,Supporter_53,Individual,General Conservation,2250,2026-08-28,Razorpay Website
+CWS_177,Supporter_54,Individual,Wild Shaale (Rural Education),8700,2026-09-15,Flodesk Newsletter
+CWS_178,CSR_Foundation_24,Institutional,Wild Seve (Conflict Relief),720000,2026-06-05,Direct CSR
+CWS_179,Supporter_55,Individual,Wild Shaale (Rural Education),4900,2026-08-22,Webinar
+CWS_180,Supporter_56,Individual,General Conservation,2550,2026-09-04,Razorpay Website
+CWS_181,CSR_Foundation_25,Institutional,Wild Shaale (Rural Education),220000,2026-07-18,Direct CSR
+CWS_182,Supporter_57,Individual,Wild Seve (Conflict Relief),9800,2026-08-10,Flodesk Newsletter
+CWS_183,Supporter_58,Individual,General Conservation,1750,2026-09-18,Razorpay Website
+CWS_184,CSR_Foundation_26,Institutional,Wild Seve (Conflict Relief),440000,2026-05-28,Direct CSR
+CWS_185,Supporter_59,Individual,Wild Shaale (Rural Education),3600,2026-08-20,Webinar
+CWS_186,Supporter_60,Individual,General Conservation,2450,2026-09-11,Flodesk Newsletter
+CWS_187,Supporter_61,Individual,Wild Seve (Conflict Relief),5900,2026-08-30,Razorpay Website
+CWS_188,CSR_Foundation_27,Institutional,General Conservation,920000,2026-06-22,Direct CSR
+CWS_189,Supporter_62,Individual,Wild Shaale (Rural Education),7400,2026-09-03,Webinar
+CWS_190,Supporter_63,Individual,Wild Seve (Conflict Relief),10800,2026-08-18,Razorpay Website
+CWS_191,CSR_Foundation_28,Institutional,Wild Shaale (Rural Education),390000,2026-07-30,Direct CSR
+CWS_192,Supporter_64,Individual,General Conservation,2050,2026-09-14,Flodesk Newsletter
+CWS_193,Supporter_65,Individual,Wild Seve (Conflict Relief),6300,2026-08-25,Razorpay Website
+CWS_194,CSR_Foundation_29,Institutional,General Conservation,670000,2026-05-12,Direct CSR
+CWS_195,Supporter_66,Individual,Wild Shaale (Rural Education),4200,2026-09-06,Webinar
+CWS_196,Supporter_67,Individual,General Conservation,2750,2026-08-19,Razorpay Website
+CWS_197,Supporter_68,Individual,Wild Seve (Conflict Relief),8900,2026-09-17,Flodesk Newsletter
+CWS_198,CSR_Foundation_30,Institutional,Wild Shaale (Rural Education),290000,2026-06-10,Direct CSR
+CWS_199,Supporter_69,Individual,Wild Seve (Conflict Relief),5300,2026-08-29,Webinar
+CWS_200,Supporter_70,Individual,General Conservation,2350,2026-09-09,Razorpay Website
