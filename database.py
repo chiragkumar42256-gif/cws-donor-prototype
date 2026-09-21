@@ -1,37 +1,34 @@
 import sqlite3
+import pandas as pd
+import os
 
 def init_db():
-    # This creates a real database file named cws_donors.db
     conn = sqlite3.connect("cws_donors.db")
-    cur = conn.cursor()
+    csv_file = "cws_donor_dataset.csv"
+    
+    if os.path.exists(csv_file):
+        df = pd.read_csv(csv_file)
+        
+        column_mapping = {
+            "Donor_ID": "id",
+            "Name": "name",
+            "Donor_Type": "donor_type",
+            "Primary_Interest": "program",
+            "Lifetime_INR": "amount_inr",
+            "Last_Contact": "last_contact",
+            "Acquisition_Source": "source"
+        }
+        df = df.rename(columns=column_mapping)
+        
+        if "email" not in df.columns:
+            df["email"] = df["name"].apply(lambda x: f"{str(x).lower().replace(' ', '_')}@example.com")
+            
+        df.to_sql("donors", conn, if_exists="replace", index=False)
+        print(f"Database successfully loaded with {len(df)} donors from CSV!")
+    else:
+        print(f"Error: Could not find {csv_file}")
 
-    # Table 1: Donor records
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS donors (
-        id TEXT PRIMARY KEY,
-        name TEXT,
-        donor_type TEXT,
-        email TEXT,
-        program TEXT,
-        amount_inr REAL
-    )
-    """)
-
-    # Add starter donors if table is empty
-    cur.execute("SELECT COUNT(*) FROM donors")
-    if cur.fetchone()[0] == 0:
-        sample_data = [
-            ("D101", "Aarav Sharma", "Individual", "aarav@email.com", "Wild Seve", 5000),
-            ("D102", "Titan CSR Foundation", "Institutional", "csr@titan.com", "Wild Shaale", 500000),
-            ("D103", "Ananya Iyer", "Individual", "ananya@email.com", "Wild Seve", 2500),
-            ("D104", "Infosys Foundation", "Institutional", "grants@infosys.com", "Wild Seve", 1200000),
-            ("D105", "Rohan Mehta", "Individual", "rohan@email.com", "Wild Shaale", 15000)
-        ]
-        cur.executemany("INSERT INTO donors VALUES (?,?,?,?,?,?)", sample_data)
-
-    conn.commit()
     conn.close()
-    print("Database is ready and filled with data!")
 
 if __name__ == "__main__":
     init_db()
