@@ -1,24 +1,46 @@
 import streamlit as st
-import pandas as pd
-import os
+import database
+import analytics
+import ai_services
 
-st.set_page_config(page_title="CWS Donor Prototype", layout="wide")
-st.title("🌿 CWS Donor Relationship Prototype")
-st.caption("Internal donor profile & relationship history tracker.")
+# Initialize database
+database.init_db()
 
-csv_path = "cws_donor_dataset.csv"
+st.set_page_config(page_title="CWS Donor System", layout="wide")
+st.title("🌿 CWS Donor Relationship Management (DRM)")
 
-if os.path.exists(csv_path):
-    df = pd.read_csv(csv_path)
+tab1, tab2, tab3 = st.tabs(["📋 Donor Directory", "📊 Giving Analytics", "🤖 AI Note Assistant"])
+
+with tab1:
+    st.subheader("All Donors")
+    total, count, df = analytics.get_summary_stats()
     
-    donor_type = st.sidebar.radio("Filter Donor Type:", ["All", "Individual", "Institutional"])
-    if donor_type != "All":
-        df = df[df["Donor_Type"] == donor_type]
-        
-    search = st.text_input("Search donor by name or program:")
-    if search:
-        df = df[df["Name"].str.contains(search, case=False) | df["Primary_Interest"].str.contains(search, case=False)]
-        
-    st.dataframe(df, use_container_width=True)
-else:
-    st.warning("No dataset found. Run python generate_data.py first.")
+    dtype = st.selectbox("Filter by Category:", ["All", "Individual", "Institutional"])
+    if dtype != "All":
+        display_df = df[df["donor_type"] == dtype]
+    else:
+        display_df = df
+
+    st.dataframe(display_df, width="stretch")
+
+with tab2:
+    st.subheader("Fundraising Overview")
+    total, count, df = analytics.get_summary_stats()
+    
+    col1, col2 = st.columns(2)
+    col1.metric("Total Funds Raised", f"₹{total:,.0f}")
+    col2.metric("Total Donors Registered", count)
+    
+    st.write("### Donor Categories")
+    st.bar_chart(df["Category"].value_counts())
+
+with tab3:
+    st.subheader("Paste Meeting / Call Notes")
+    user_note = st.text_area("What did the donor say on the call?")
+    if st.button("Generate Summary & Next Action"):
+        if user_note:
+            summary = ai_services.clean_meeting_notes(user_note)
+            st.success("Action Item Extracted:")
+            st.write(summary)
+        else:
+            st.warning("Please type some notes first.")
