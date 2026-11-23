@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import io
 from datetime import datetime
 import database
 import analytics
@@ -20,7 +19,6 @@ database.init_db()
 # 2. Custom CSS Injection for Modern UI
 st.markdown("""
 <style>
-    /* Metric Card Styling */
     [data-testid="stMetricValue"] {
         font-size: 1.8rem;
         font-weight: 700;
@@ -31,7 +29,6 @@ st.markdown("""
         font-weight: 600;
         color: #555555;
     }
-    /* Clean Tab Headers */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
     }
@@ -39,30 +36,6 @@ st.markdown("""
         padding: 8px 16px;
         border-radius: 6px;
         font-weight: 600;
-    }
-    /* Card Container */
-    .cws-card {
-        background-color: #f8faf9;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 16px;
-        margin-bottom: 12px;
-    }
-    .badge-ok {
-        background-color: #dcfce7;
-        color: #166534;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 0.85rem;
-    }
-    .badge-warn {
-        background-color: #fef3c7;
-        color: #92400e;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 0.85rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -83,7 +56,6 @@ with st.sidebar:
     st.subheader("Filter Directory")
     donor_type_filter = st.radio("Donor Type", ["All", "Individual", "Institutional"])
     
-    # Extract unique programs safely
     available_programs = ["All"] + sorted(df["program"].dropna().unique().tolist()) if "program" in df.columns else ["All"]
     program_filter = st.selectbox("Conservation Focus", available_programs)
 
@@ -124,7 +96,6 @@ with tabs[0]:
     st.caption(f"Showing **{len(filtered_df)}** matching donor records")
     st.dataframe(filtered_df, use_container_width=True)
 
-    # Donor 360 Drill-down Expander
     with st.expander("🔎 View Specific Donor 360° Profile", expanded=True):
         selected_id = st.selectbox("Select Donor ID", filtered_df["id"].tolist() if not filtered_df.empty else ["None"])
         if selected_id != "None" and not filtered_df.empty:
@@ -223,7 +194,6 @@ with tabs[3]:
         st.write("")
         use_sample_bank = st.checkbox("Use Built-In Sample Bank UPI CSV (Live Demo)", value=True)
 
-    # Sample bank ledger simulating real Indian UPI credits + missing PAN cases
     sample_bank_data = pd.DataFrame([
         {"Txn_Date": "2026-10-28", "UTR_Ref": "UPI/4302918471/supporter_1@okaxis", "Donor_ID": "CWS_101", "Donor_Name": "Supporter_1", "Amount_INR": 5000, "PAN_Status": "ABCDE1234F", "Payment_Mode": "UPI"},
         {"Txn_Date": "2026-10-28", "UTR_Ref": "NEFT/HDFC0009182/CSR_Foundation_1", "Donor_ID": "CWS_102", "Donor_Name": "CSR_Foundation_1", "Amount_INR": 500000, "PAN_Status": "AAACT4567G", "Payment_Mode": "Bank Transfer"},
@@ -239,7 +209,6 @@ with tabs[3]:
         bank_df = sample_bank_data
 
     if bank_df is not None:
-        # Run Reconciliation Check against Main Donor Directory
         known_ids = set(df["id"].astype(str).tolist())
         bank_df["Match_Status"] = bank_df["Donor_ID"].apply(
             lambda x: "✅ Auto-Matched" if str(x) in known_ids else "⚠️ Unmatched Credit"
@@ -257,7 +226,6 @@ with tabs[3]:
 
         st.dataframe(bank_df, use_container_width=True)
 
-        # Actionable PAN Intake Link + Form 10BD Export
         c_left, c_right = st.columns(2)
         with c_left:
             st.markdown("#### 🔗 Automated PAN Collection Trigger")
@@ -297,3 +265,27 @@ with tabs[3]:
 # TAB 5: GRANTTRACK 135 (INSTITUTIONAL CSR MILESTONE GOVERNANCE)
 # ==============================================================================
 with tabs[4]:
+    st.subheader("🏛️ GrantTrack 135: Corporate CSR Tranche & UC Governance")
+    st.caption("Models institutional CSR partners separately from retail 80G givers—tracking Section 135 tranches, MOUs, and Utilization Certificates (UCs).")
+
+    csr_df = df[df["donor_type"] == "Institutional"].copy()
+    if not csr_df.empty:
+        tranche_stages = [
+            "Tranche 1 (40%) Disbursed — Audited UC Due in 18 Days",
+            "MOU Signed — Awaiting Tranche 1 Release",
+            "Tranche 2 (40%) Disbursed — Field Impact Report Active"
+        ]
+        uc_statuses = ["⚠️ UC Due Soon (45-Day Rule)", "🟢 On Track", "🟢 UC Verified"]
+        
+        csr_display = csr_df[["id", "name", "program", "amount_inr", "last_contact"]].copy()
+        csr_display["Section_135_Milestone"] = [tranche_stages[i % len(tranche_stages)] for i in range(len(csr_display))]
+        csr_display["Compliance_Gate"] = [uc_statuses[i % len(uc_statuses)] for i in range(len(csr_display))]
+
+        g1, g2, g3 = st.columns(3)
+        g1.metric("Active CSR Partners", f"{len(csr_display)}")
+        g2.metric("Total CSR Commitments", f"₹{csr_display['amount_inr'].sum():,.0f}")
+        g3.metric("Upcoming UC Deadlines", f"{(csr_display['Compliance_Gate'].str.contains('Due Soon')).sum()} grants")
+
+        st.dataframe(csr_display, use_container_width=True)
+    else:
+        st.info("No institutional CSR records found in the current database filter.")
